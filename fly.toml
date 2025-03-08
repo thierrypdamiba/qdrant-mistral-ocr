@@ -1,0 +1,30 @@
+# fly.toml app configuration file generated for danek-api on 2025-03-07T00:59:55-08:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'danek-api'
+primary_region = 'sjc'
+
+[build]
+  dockerfile = 'Dockerfile'
+
+[env]
+  QDRANT_COLLECTION_NAME = 'danek_documents'
+  QDRANT_URL = 'https://f89f62cf-4aba-4847-bed6-72773360a8cb.europe-west3-0.gcp.cloud.qdrant.io'
+  QDRANT_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.9IbGgzCXiHt1_OBZVmcTLlESF7xtRJ-FIIXXWTQLRJA'
+  MISTRAL_API_KEY = 'zRSLDjjf0BpjvQRyARKXNiiWsHnLwjyF'
+  COLLECTION_NAME = 'notes'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '2gb'
+  cpu_kind = 'shared'
+  cpus = 2

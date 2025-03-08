@@ -1,0 +1,28 @@
+# Dependencies
+node_modules
+venv
+
+# Backend (now deployed separately on Fly.io)
+api/
+requirements.txt
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+
+# Testing
+test.pdf
+test.txt
+IMG_8203.jpeg
+
+# Local development
+.git
+.github
+.next
+.vercel
+
+# Misc
+README.md
+LICENSE 
